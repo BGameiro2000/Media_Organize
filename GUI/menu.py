@@ -42,7 +42,10 @@ def radCall():
 radVariable = tk.IntVar()
 
 # Next we are selecting a non-existing index value for radVar
-radVariable.set(0)
+while variable not in range App:
+    for i in range Apps:
+        i += 1
+        radVariable.set(i)
  
 # Now we are creating all three Radiobutton widgets within one loop
 for ap in range(1, 2):

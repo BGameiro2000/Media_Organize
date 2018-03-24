@@ -27,29 +27,31 @@ win = tk.Tk()
 # Add a title
 win.title("Media")
 
-# First, we define the app paths
-Apps = {"Name displayed":"Path to the app", "Música":"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", "Fotos":"F:\\VLC\\vlc.exe"} 
+# First, we define the app paths and the apps name
+Apps = ["Name displayed", "Música", "Fotos"]
+Paths = ["Path to the app", "C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", "F:\\VLC\\vlc.exe"]
+AppsPath = dict(zip(Apps, Paths))
 
 # Radiobutton Callback
 def radCall():
-    radSelect=radVariable.get()
+    radSelect=radNumberVar.get()
     if radSelect == 1:
-        App = Apps[1]
+        App = AppsPath[Apps[1]]
     elif radSelect == 2:
-        App = Apps[2]
+        App = AppsPath[Apps[2]
 
 # create two Radiobuttons using one variable
-radVariable = tk.IntVar()
+radNumberVar = tk.IntVar()
 
 # Next we are selecting a non-existing index value for radVar
-while variable not in range App:
-    for i in range Apps:
+while variable  in range(Apps):
+    for i in range(Apps):
         i += 1
-        radVariable.set(i)
+        radNumberVar.set(i)
  
 # Now we are creating all three Radiobutton widgets within one loop
-for ap in range(1, 2):
-    curRad = tk.Radiobutton(win, text=Apps[ap], variable=radVariable, value=ap, command=radCall)
+for ap in range(1, Apps):
+    curRad = tk.Radiobutton(win, text=Apps[ap], variable=radNumberVar, value=ap, command=radCall)
     curRad.grid(column=ap, row=2, sticky=tk.W)
 
 # Button Click Event Function

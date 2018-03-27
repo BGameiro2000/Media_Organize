@@ -61,9 +61,7 @@ def radioCall():
     if   radioSelect == 0: radioSelect = 0 #nothing appens
     elif radioSelect == 1: window.configure("""add path to app 1""")
     elif radioSelect == 2: window.configure("""add path to app 2""")
-    else:
-        for i in radioSelect:
-            window.configure("""add path to app 2""")
+    else: window.configure("""add path to app 2""")
 # create three Radiobuttons using one variable
 radioVariable = tk.IntVar()
 

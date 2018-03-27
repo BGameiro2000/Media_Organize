@@ -21,8 +21,11 @@ import os
 # Create instance
 window = tk.Tk()
 
-# Add a title       
+# Title of the window    
 window.title("Media Organization GUI")
+
+# Label to media
+ttk.Label(window, text="Which media would you like to access?").grid(column=0, row=0)
 
 #======================
 # Start GUI

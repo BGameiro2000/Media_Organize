@@ -21,6 +21,9 @@ import os
 # Create instance
 window = tk.Tk()
 
+# Add a title       
+window.title("Media Organization GUI")
+
 #======================
 # Start GUI
 #======================

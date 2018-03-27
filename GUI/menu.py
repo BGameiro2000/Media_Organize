@@ -36,32 +36,24 @@ window.title("Media Organization GUI")
 ttk.Label(window, text="Which media would you like to access?").grid(row=0)
 
 #======================
-# go button
-#======================
-# Button Click Event Function
-def click_me():
-    action.configure(os.startfile(Path, "open"))
-
-# Button
-action = ttk.Button(window, text="Go!", command=click_me)
-action.grid(column=4, row=1, sticky=tk.E)
-
-#======================
 # radio buttons
 #======================
 # Radiobutton global variables (list)
 Apps = ["Name displayed", "Música", "Fotos"]
 Paths = ["Path to the app", "C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", "F:\\VLC\\vlc.exe"] #-r
-rPaths = []
+rPaths = [r"Path to the app", r"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", r"F:\\VLC\\vlc.exe"]
 AppsPath = dict(zip(Apps, rPaths))
 
 # Radiobutton Callback
 def radioCall():
     radioSelect=radioVariable.get()
-    if   radioSelect == 0: radioSelect = 0 #nothing appens
-    elif radioSelect == 1: window.configure("""add path to app 1""")
-    elif radioSelect == 2: window.configure("""add path to app 2""")
-    else: window.configure("""add path to app 2""")
+    if radioSelect == 0:
+        action.configure(state='disabled')
+        runApp = 0
+    else:
+        runApp = AppsPath[Apps[radioSelect]]
+    return(runApp)
+
 # create three Radiobuttons using one variable
 radioVariable = tk.IntVar()
 
@@ -72,6 +64,17 @@ radioVariable.set(0)
 for ap in range(1, len(Apps)):
     curRad = tk.Radiobutton(window, text=Apps[ap], variable=radioVariable, value=ap, command=radioCall)
     curRad.grid(column=ap, row=1, sticky=tk.E)
+
+#======================
+# go button
+#======================
+# Button Click Event Function
+def click_me():
+    action.configure(os.startfile(runApp), "open")
+
+# Button
+action = ttk.Button(window, text="Go!", command=click_me)
+action.grid(column=4, row=1, sticky=tk.E)
 
 #======================
 # Start GUI

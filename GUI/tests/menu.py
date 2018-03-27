@@ -17,3 +17,11 @@ Using Tkinter
 import tkinter as tk
 from tkinter import ttk
 import os
+
+# Create instance
+window = tk.Tk()
+
+#======================
+# Start GUI
+#======================
+window.mainloop()

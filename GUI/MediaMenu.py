@@ -61,7 +61,14 @@ window.title("Media Organizer GUI")
 # label
 #======================
 # Label to media
-ttk.Label(window, text="Which media would you like to access?").grid(row=0)
+ttk.Label(window, text="Which media would you like to access?").grid(column=0, row=0)
+
+#======================
+# container
+#======================
+# Create container
+button_frame = ttk.LabelFrame(window, text="Apps available:")
+button_frame.grid(column=0, row=1)
 
 #======================
 # radio buttons
@@ -74,7 +81,7 @@ radioVariable.set(0)
 
 # Creating all Radiobutton widgets within one loop
 for ap in range(1, len(Apps)):
-    curRad = tk.Radiobutton(window, text=Apps[ap], variable=radioVariable, value=ap, command=runApp)
+    curRad = tk.Radiobutton(button_frame, text=Apps[ap], variable=radioVariable, value=ap, command=runApp)
     curRad.grid(column=ap, row=1, sticky=tk.E)
 
 #======================
@@ -82,7 +89,7 @@ for ap in range(1, len(Apps)):
 #======================
 # Button
 action = ttk.Button(window, text="Go!", command=click_me)
-action.grid(column=4, row=1, sticky=tk.E)
+action.grid(column=0, row=2)
 action.configure(state="disabled")
 
 #======================

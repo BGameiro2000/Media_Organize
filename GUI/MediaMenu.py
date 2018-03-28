@@ -49,7 +49,7 @@ def quit():
 
 # Open changes GUI
 def changes():
-    os.startfile(r"ChangeApp.py", "open")
+    os.startfile(r"ChangeApp.py", "open") #not working
 
 #======================
 # title

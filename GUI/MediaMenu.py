@@ -19,6 +19,7 @@ from tkinter import messagebox as msg
 import os
 from Data.dictionary import AppsPath as AppsPath
 from Data.UserSettings.userlists import Apps as Apps
+import Data.Help.MediaMenuHelp as Help
 
 # Create instance
 window = tk.Tk()
@@ -35,6 +36,10 @@ def runApp():
 # Button Click Event Function
 def click_me():
     os.startfile(thisApp, "open")
+
+# Help Message box
+def msgBox():
+    msg.showinfo(Help.Title, Help.Message)
 
 # Exit GUI cleanly
 def quit():
@@ -86,7 +91,7 @@ window.config(menu=menu_bar)
 # Add menu items
 # File menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Help")
+file_menu.add_command(label="Help", command=msgBox)
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)

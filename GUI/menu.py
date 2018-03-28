@@ -18,8 +18,6 @@ import tkinter as tk
 from tkinter import ttk
 import os
 
-Path = r"path to app form C://"
-
 # Create instance
 window = tk.Tk()
 

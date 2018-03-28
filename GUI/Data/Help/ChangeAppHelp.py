@@ -12,7 +12,7 @@ Using Tkinter
 """
 
 #======================
-# imports
+# Strings to use with the messages
 #======================
-import tkinter as tk
-from tkinter import ttk
+Title = "App Changer Help"
+Message = "T"

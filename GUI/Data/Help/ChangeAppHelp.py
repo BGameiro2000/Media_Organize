@@ -15,4 +15,4 @@ Using Tkinter
 # Strings to use with the messages
 #======================
 Title = "App Changer Help"
-Message = "T"
+Message = "This app has the purpose of allowing the user to add or remove an app, and the respective path, to the Media Menu."

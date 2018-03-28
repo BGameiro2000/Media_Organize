@@ -6,7 +6,7 @@ More in
   SoloLearn: https://www.sololearn.com/Profile/8198571
   GitHub: https://github.com/BGameiro76
   Repl.it: https://repl.it/@B_Gameiro
-Lists to use in Media Organization Menu project
+Dictionary to use in Media Organization Menu project
 GUI in Python 3
 Using Tkinter
 """

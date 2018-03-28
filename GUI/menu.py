@@ -46,7 +46,7 @@ Paths = ["Path to the app", "C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3d
 rPaths = ["Path to the app", r"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", r"F:\\VLC\\vlc.exe"]
 AppsPath = dict(zip(Apps, rPaths))
 
-#
+# Radiobutton Choose Event Function
 def runApp():
     radioSelect = radioVariable.get()
     action.configure(state="normal")

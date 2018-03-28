@@ -31,6 +31,10 @@ def quit():
     window.destroy()
     exit()
 
+# Help Message box
+def msgBox():
+    msg.showinfo(Help.Title, Help.Message)
+
 #======================
 # title
 #======================
@@ -47,9 +51,7 @@ window.config(menu=menu_bar)
 # Add menu items
 # File menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Welcome")
-file_menu.add_separator()
-file_menu.add_command(label="Help")
+file_menu.add_command(label="Help", command=msgBox)
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)

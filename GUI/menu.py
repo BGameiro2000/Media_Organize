@@ -16,9 +16,7 @@ Using Tkinter
 #======================
 import tkinter as tk
 from tkinter import ttk
-import os, re
-
-Path = r"path to app form C://"
+import os
 
 # Create instance
 window = tk.Tk()
@@ -40,20 +38,19 @@ ttk.Label(window, text="Which media would you like to access?").grid(row=0)
 #======================
 # Radiobutton global variables (list)
 Apps = ["Name displayed", "Música", "Fotos"]
-Paths = ["Path to the app", "C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", "F:\\VLC\\vlc.exe"]
-#rPaths = [re.compile(p) for p in Paths]
-rPaths = ["Path to the app", r"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", r"F:\\VLC\\vlc.exe"]
+Paths = ["Path to the app", "C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", "F:\\VLC\\vlc.exe"] #-r
+rPaths = [r"Path to the app", r"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", r"F:\\VLC\\vlc.exe"]
 AppsPath = dict(zip(Apps, rPaths))
 
-#
-def runApp():
-    radioSelect = radioVariable.get()
+# Radiobutton Callback
+def radioCall():
+    radioSelect=radioVariable.get()
     if radioSelect == 0:
-        action.configure(state="disabled")
+        action.configure(state='disabled')
+        runApp = 0
     else:
-        action.configure(state="normal")
-        thisApp = AppsPath[Apps[radioSelect]]
-        print(thisApp)
+        runApp = AppsPath[Apps[radioSelect]]
+    return(runApp)
 
 # create three Radiobuttons using one variable
 radioVariable = tk.IntVar()
@@ -63,7 +60,7 @@ radioVariable.set(0)
 
 # Creating all Radiobutton widgets within one loop
 for ap in range(1, len(Apps)):
-    curRad = tk.Radiobutton(window, text=Apps[ap], variable=radioVariable, value=ap, command=runApp)
+    curRad = tk.Radiobutton(window, text=Apps[ap], variable=radioVariable, value=ap, command=radioCall)
     curRad.grid(column=ap, row=1, sticky=tk.E)
 
 #======================
@@ -71,7 +68,7 @@ for ap in range(1, len(Apps)):
 #======================
 # Button Click Event Function
 def click_me():
-    os.startfile(thisApp, "open")
+    action.configure(os.startfile(runApp), "open")
 
 # Button
 action = ttk.Button(window, text="Go!", command=click_me)

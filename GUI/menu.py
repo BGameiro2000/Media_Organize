@@ -46,11 +46,14 @@ rPaths = ["Path to the app", r"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP
 AppsPath = dict(zip(Apps, rPaths))
 
 #
-thisApp = 0
-def runApp(radioVariable):
-    thisApp = AppsPath[Apps[radioVariable]]
-    print(thisApp)
-    return(thisApp)
+def runApp():
+    radioSelect = radioVariable.get()
+    if radioSelect == 0:
+        action.configure(state="disabled")
+    else:
+        action.configure(state="normal")
+        thisApp = AppsPath[Apps[radioSelect]]
+        print(thisApp)
 
 # create three Radiobuttons using one variable
 radioVariable = tk.IntVar()
@@ -73,8 +76,6 @@ def click_me():
 # Button
 action = ttk.Button(window, text="Go!", command=click_me)
 action.grid(column=4, row=1, sticky=tk.E)
-while radioVariable == 0:
-    action.configure(state="disabled")
 
 #======================
 # Start GUI

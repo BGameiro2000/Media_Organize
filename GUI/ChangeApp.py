@@ -21,6 +21,15 @@ from tkinter import ttk, Menu
 window = tk.Tk()
 
 #======================
+# functions
+#======================
+# Exit GUI cleanly
+def quit():
+    window.quit()
+    window.destroy()
+    exit()
+
+#======================
 # title
 #======================
 # Add a title       
@@ -39,6 +48,8 @@ file_menu = Menu(menu_bar, tearoff=0)
 file_menu.add_command(label="Welcome")
 file_menu.add_separator()
 file_menu.add_command(label="Help")
+file_menu.add_separator()
+file_menu.add_command(label="Exit, command=quit")
 menu_bar.add_cascade(label="File", menu=file_menu)
 # Apps menu
 app_menu = Menu(menu_bar, tearoff=0)

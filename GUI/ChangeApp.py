@@ -16,6 +16,8 @@ Using Tkinter
 #======================
 import tkinter as tk
 from tkinter import ttk, Menu
+from tkinter import messagebox as msg
+import Data.Help.ChangeAppHelp as Help
 
 # Create instance
 window = tk.Tk()
@@ -51,12 +53,6 @@ file_menu.add_command(label="Help")
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
-# Apps menu
-app_menu = Menu(menu_bar, tearoff=0)
-app_menu.add_command(label="Add")
-app_menu.add_separator()
-app_menu.add_command(label="Remove")
-menu_bar.add_cascade(label="Apps", menu=app_menu)
 
 #======================
 # Start GUI

@@ -46,7 +46,7 @@ def quit():
 # title
 #======================
 # Title of the window    
-window.title("Media Organization GUI")
+window.title("Media Organizer GUI")
 
 #======================
 # label

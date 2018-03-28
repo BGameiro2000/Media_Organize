@@ -10,3 +10,9 @@ Program to change the apps and their paths in order to use menu.py
 GUI in Python 3
 Using Tkinter
 """
+
+#======================
+# imports
+#======================
+import tkinter as tk
+from tkinter import ttk

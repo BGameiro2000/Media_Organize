@@ -47,12 +47,9 @@ AppsPath = dict(zip(Apps, rPaths))
 #
 def runApp():
     radioSelect = radioVariable.get()
-    if radioSelect == 0:
-        action.configure(state="disabled")
-    else:
-        action.configure(state="normal")
-        thisApp = AppsPath[Apps[radioSelect]]
-        print(thisApp)
+    action.configure(state="normal")
+    global thisApp
+    thisApp = AppsPath[Apps[radioSelect]]
 
 # create three Radiobuttons using one variable
 radioVariable = tk.IntVar()
@@ -75,6 +72,7 @@ def click_me():
 # Button
 action = ttk.Button(window, text="Go!", command=click_me)
 action.grid(column=4, row=1, sticky=tk.E)
+action.configure(state="disabled")
 
 #======================
 # Start GUI

@@ -47,6 +47,10 @@ def quit():
     window.destroy()
     exit()
 
+# Open changes GUI
+def changes():
+    os.startfile(r"ChangeApp.py", "open")
+
 #======================
 # title
 #======================
@@ -95,6 +99,9 @@ file_menu.add_command(label="Help", command=msgBox)
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
+edit_menu = Menu(menu_bar, tearoff=0)
+edit_menu.add_command(label="Add/Remove apps", command=changes)
+menu_bar.add_cascade(label="Edit", menu=edit_menu)
 
 #======================
 # Start GUI

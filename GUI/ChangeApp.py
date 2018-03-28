@@ -20,6 +20,9 @@ from tkinter import ttk
 # Create instance
 window = tk.Tk()
 
+# Add a title       
+window.title("App changer")
+
 #======================
 # Start GUI
 #======================

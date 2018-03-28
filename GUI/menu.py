@@ -15,7 +15,9 @@ Using Tkinter
 #======================
 import tkinter as tk
 from tkinter import ttk
-import os, re
+import os
+from Data.dictionary import AppsPath as AppsPath
+from Data.UserSettings.userlists import Apps as Apps
 
 # Create instance
 window = tk.Tk()
@@ -35,18 +37,6 @@ ttk.Label(window, text="Which media would you like to access?").grid(row=0)
 #======================
 # radio buttons
 #======================
-# Radiobutton global variables (list)
-Apps = ["Name displayed", "Música", "Fotos"]
-Paths = ["Path to the app", "C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", "F:\\VLC\\vlc.exe"]
-BSDouble = r"\\"
-BSDoubleDouble = r"\\\\"
-rPaths = [re.sub(BSDouble, BSDoubleDouble, p) for p in Paths]
-#rPaths = [re.escape(p) for p in Paths]
-#rPaths = ["%r"%p for p in Paths]
-#rPaths = "%r"%Paths
-#rPaths = ["Path to the app", r"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", r"F:\\VLC\\vlc.exe"]
-AppsPath = dict(zip(Apps, rPaths))
-
 # Radiobutton Choose Event Function
 def runApp():
     radioSelect = radioVariable.get()

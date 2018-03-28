@@ -38,7 +38,7 @@ def msgBox():
 #======================
 # title
 #======================
-# Add a title       
+# Add a title
 window.title("App changer")
 
 #======================
@@ -59,4 +59,4 @@ menu_bar.add_cascade(label="File", menu=file_menu)
 #======================
 # Start GUI
 #======================
-window.mainloop() 
+window.mainloop()

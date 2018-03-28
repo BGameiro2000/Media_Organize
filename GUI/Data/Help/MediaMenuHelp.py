@@ -15,4 +15,4 @@ Using Tkinter
 # Strings to use with the messages
 #======================
 Title = "Media Organizer GUI Help"
-Message = "This app has the purpose of allowing the user to add or remove an app, and the respective path, to the Media Menu."
+Message = "This app has the purpose of allowing the user to quickly access any app to display the different kinds of media in the computer."

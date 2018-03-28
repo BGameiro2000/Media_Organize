@@ -49,7 +49,7 @@ file_menu.add_command(label="Welcome")
 file_menu.add_separator()
 file_menu.add_command(label="Help")
 file_menu.add_separator()
-file_menu.add_command(label="Exit, command=quit")
+file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
 # Apps menu
 app_menu = Menu(menu_bar, tearoff=0)

@@ -42,9 +42,9 @@ file_menu.add_command(label="Help")
 menu_bar.add_cascade(label="File", menu=file_menu)
 # Apps menu
 app_menu = Menu(menu_bar, tearoff=0)
-app_menu.add_command(label="Add apps")
+app_menu.add_command(label="Add")
 app_menu.add_separator()
-app_menu.add_command(label="Remove apps")
+app_menu.add_command(label="Remove")
 menu_bar.add_cascade(label="Apps", menu=app_menu)
 
 #======================

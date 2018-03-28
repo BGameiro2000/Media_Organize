@@ -20,8 +20,32 @@ from tkinter import ttk, Menu
 # Create instance
 window = tk.Tk()
 
+#======================
+# title
+#======================
 # Add a title       
 window.title("App changer")
+
+#======================
+# menu bar
+#======================
+# Creating a Menu Bar
+menu_bar = Menu(window)
+window.config(menu=menu_bar)
+
+# Add menu items
+# File menu
+file_menu = Menu(menu_bar, tearoff=0)
+file_menu.add_command(label="Welcome")
+file_menu.add_separator()
+file_menu.add_command(label="Help")
+menu_bar.add_cascade(label="File", menu=file_menu)
+# Apps menu
+app_menu = Menu(menu_bar, tearoff=0)
+app_menu.add_command(label="Add apps")
+app_menu.add_separator()
+app_menu.add_command(label="Remove apps")
+menu_bar.add_cascade(label="Apps", menu=app_menu)
 
 #======================
 # Start GUI

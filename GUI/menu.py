@@ -10,60 +10,73 @@ More in
 GUI in Python 3
 Using Tkinter
 """
+
 #======================
 # imports
 #======================
 import tkinter as tk
 from tkinter import ttk
-import os
+import os, re
 
-# Start file function
-def run(Path):
-    os.startfile(Path, "open")
+Path = r"path to app form C://"
 
 # Create instance
-win = tk.Tk()   
+window = tk.Tk()
 
-# Add a title
-win.title("Media")
+#======================
+# title
+#======================
+# Title of the window    
+window.title("Media Organization GUI")
 
-# First, we define the app paths and the apps name
+#======================
+# label
+#======================
+# Label to media
+ttk.Label(window, text="Which media would you like to access?").grid(row=0)
+
+#======================
+# radio buttons
+#======================
+# Radiobutton global variables (list)
 Apps = ["Name displayed", "Música", "Fotos"]
 Paths = ["Path to the app", "C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", "F:\\VLC\\vlc.exe"]
-AppsPath = dict(zip(Apps, Paths))
+#rPaths = [re.compile(p) for p in Paths]
+rPaths = ["Path to the app", r"C:\\Program Files (x86)\\MAGIX\\MP3 deluxe 19\\MP3deluxe.exe", r"F:\\VLC\\vlc.exe"]
+AppsPath = dict(zip(Apps, rPaths))
 
-# Radiobutton Callback
-def radCall():
-    radSelect=radNumberVar.get()
-    if radSelect == 1:
-        App = AppsPath[Apps[1]]
-    elif radSelect == 2:
-        App = AppsPath[Apps[2]
+#
+thisApp = 0
+def runApp(radioVariable):
+    thisApp = AppsPath[Apps[radioVariable]]
+    print(thisApp)
+    return(thisApp)
 
-# create two Radiobuttons using one variable
-radNumberVar = tk.IntVar()
+# create three Radiobuttons using one variable
+radioVariable = tk.IntVar()
 
-# Next we are selecting a non-existing index value for radVar
-while variable  in range(Apps):
-    for i in range(Apps):
-        i += 1
-        radNumberVar.set(i)
- 
-# Now we are creating all three Radiobutton widgets within one loop
-for ap in range(1, Apps):
-    curRad = tk.Radiobutton(win, text=Apps[ap], variable=radNumberVar, value=ap, command=radCall)
-    curRad.grid(column=ap, row=2, sticky=tk.W)
+# Selecting a non-existing index value for radioVariable
+radioVariable.set(0)
 
+# Creating all Radiobutton widgets within one loop
+for ap in range(1, len(Apps)):
+    curRad = tk.Radiobutton(window, text=Apps[ap], variable=radioVariable, value=ap, command=runApp)
+    curRad.grid(column=ap, row=1, sticky=tk.E)
+
+#======================
+# go button
+#======================
 # Button Click Event Function
 def click_me():
-    action.configure(run(App))
+    os.startfile(thisApp, "open")
 
-# Adding a Button
-action = ttk.Button(win, text="Go!", command=click_me)
-action.grid(column=1, row=1)
-action.configure(state='disabled')
+# Button
+action = ttk.Button(window, text="Go!", command=click_me)
+action.grid(column=4, row=1, sticky=tk.E)
+while radioVariable == 0:
+    action.configure(state="disabled")
 
 #======================
 # Start GUI
 #======================
-win.mainloop()
+window.mainloop()

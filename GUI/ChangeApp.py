@@ -15,7 +15,7 @@ Using Tkinter
 # imports
 #======================
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, Menu
 
 # Create instance
 window = tk.Tk()

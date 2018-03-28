@@ -79,4 +79,4 @@ action.grid(column=4, row=1, sticky=tk.E)
 #======================
 # Start GUI
 #======================
-window.mainloop(
+window.mainloop()

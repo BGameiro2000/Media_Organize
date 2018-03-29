@@ -20,6 +20,7 @@ import os
 from Data.dictionary import AppsPath as AppsPath
 from Data.UserSettings.userlists import Apps as Apps
 import Data.Help.MediaMenuHelp as Help
+import Data.Help.MediaMenuHowTo as HT
 
 # Create instance
 window = tk.Tk()
@@ -40,6 +41,10 @@ def click_me():
 # Help Message box
 def msgBoxHelp():
     msg.showinfo(Help.Title, Help.Message)
+
+# How to Message box
+def msgBoxHT():
+    msg.showinfo(HT.Title, HT.Message)
 
 # Exit GUI cleanly
 def quit():
@@ -110,7 +115,7 @@ edit_menu = Menu(menu_bar, tearoff=0)
 edit_menu.add_command(label="Add/Remove apps", command=changes)
 menu_bar.add_cascade(label="Edit", menu=edit_menu)
 help_menu = Menu(menu_bar, tearoff=0)
-help_menu.add_command(label="How to...")
+help_menu.add_command(label="How to...", command=msgBoxHT)
 help_menu.add_separator()
 help_menu.add_command(label="Help", command=msgBoxHelp)
 menu_bar.add_cascade(label="Help", menu=help_menu)

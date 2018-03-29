@@ -18,6 +18,7 @@ import tkinter as tk
 from tkinter import ttk, Menu
 from tkinter import messagebox as msg
 import Data.Help.ChangeAppHelp as Help
+import Data.Help.ChangeAppHowTo as HT
 
 # Create instance
 window = tk.Tk()
@@ -32,8 +33,12 @@ def quit():
     exit()
 
 # Help Message box
-def msgBox():
+def msgBoxHelp():
     msg.showinfo(Help.Title, Help.Message)
+
+# How to Message box
+def msgBoxHT():
+    msg.showinfo(HT.Title, HT.Message)
 
 #======================
 # title
@@ -51,10 +56,15 @@ window.config(menu=menu_bar)
 # Add menu items
 # File menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Help", command=msgBox)
+file_menu.add_command(label="New")
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
+help_menu = Menu(menu_bar, tearoff=0)
+help_menu.add_command(label="How to...", command=msgBoxHT)
+help_menu.add_separator()
+help_menu.add_command(label="Help", command=msgBoxHelp)
+menu_bar.add_cascade(label="Help", menu=help_menu)
 
 #======================
 # Start GUI

@@ -38,7 +38,7 @@ def click_me():
     os.startfile(thisApp, "open")
 
 # Help Message box
-def msgBox():
+def msgBoxHelp():
     msg.showinfo(Help.Title, Help.Message)
 
 # Exit GUI cleanly
@@ -49,7 +49,7 @@ def quit():
 
 # Open changes GUI
 def changes():
-    os.startfile(r"ChangeApp.py", "open") #not working
+    os.startfile(r"C:\Users\Admin\Desktop\Code\Code\Github\Media_Organize\GUI\ChangeApp.py", "open") #for especific path
 
 #======================
 # title
@@ -102,13 +102,18 @@ window.config(menu=menu_bar)
 # Add menu items
 # File menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Help", command=msgBox)
+file_menu.add_command(label="New")
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
 edit_menu = Menu(menu_bar, tearoff=0)
 edit_menu.add_command(label="Add/Remove apps", command=changes)
 menu_bar.add_cascade(label="Edit", menu=edit_menu)
+help_menu = Menu(menu_bar, tearoff=0)
+help_menu.add_command(label="How to...")
+help_menu.add_separator()
+help_menu.add_command(label="Help", command=msgBoxHelp)
+menu_bar.add_cascade(label="Help", menu=help_menu)
 
 #======================
 # Start GUI

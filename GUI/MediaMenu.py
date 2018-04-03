@@ -55,11 +55,11 @@ def _quit():
 
 # Add app to the GUI
 def _addApp():
-    addApp = dlg.SimpleDialog(window, title="Add Apps")
+    dlg.SimpleDialog(window, title="Add Apps", text="This window allows you to add apps to your menu.", cancel=1)
 
 # Remove app from the GUI
 def _removeApp():
-    removeApp = dlg.SimpleDialog(window, title="Remove Apps")
+    dlg.SimpleDialog(window, title="Remove Apps")
 
 #======================
 # title
@@ -126,11 +126,6 @@ help_menu.add_command(label="How to...", command=_msgBoxHT)
 help_menu.add_separator()
 help_menu.add_command(label="Help", command=_msgBoxHelp)
 menu_bar.add_cascade(label="Help", menu=help_menu)
-
-#======================
-# menu bar
-#======================
-
 
 #======================
 # Start GUI

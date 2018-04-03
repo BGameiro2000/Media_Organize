@@ -16,6 +16,7 @@ Using Tkinter
 import tkinter as tk
 from tkinter import ttk, Menu
 from tkinter import messagebox as msg
+from tkinter import simpledialog as dlg
 import os
 from Data.dictionary import AppsPath as AppsPath
 from Data.UserSettings.userlists import Apps as Apps
@@ -28,37 +29,37 @@ window = tk.Tk()
 #======================
 # functions
 #======================
-def runApp():
+def _runApp():
     radioSelect = radioVariable.get()
     action.configure(state="normal")
     global thisApp
     thisApp = AppsPath[Apps[radioSelect]]
 
 # Button Click Event Function
-def click_me():
+def _click_me():
     os.startfile(thisApp, "open")
 
 # Help Message box
-def msgBoxHelp():
+def _msgBoxHelp():
     msg.showinfo(Help.Title, Help.Message)
 
 # How to Message box
-def msgBoxHT():
+def _msgBoxHT():
     msg.showinfo(HT.Title, HT.Message)
 
 # Exit GUI cleanly
-def quit():
+def _quit():
     window.quit()
     window.destroy()
     exit()
 
 # Add app to the GUI
-def addApp():
-    msg.askquestion()
-
+def _addApp():
+    addApp = dlg.SimpleDialog(window)
+    
 # Remove app from the GUI
-def removeApp():
-    msg.askquestion()
+def _removeApp():
+    removeApp = dlg.SimpleDialog(window)
 
 #======================
 # title
@@ -90,14 +91,14 @@ radioVariable.set(0)
 
 # Creating all Radiobutton widgets within one loop
 for ap in range(1, len(Apps)):
-    curRad = tk.Radiobutton(button_frame, text=Apps[ap], variable=radioVariable, value=ap, command=runApp)
+    curRad = tk.Radiobutton(button_frame, text=Apps[ap], variable=radioVariable, value=ap, command=_runApp)
     curRad.grid(column=ap, row=1, sticky=tk.E)
 
 #======================
 # go button
 #======================
 # Button
-action = ttk.Button(window, text="Go!", command=click_me)
+action = ttk.Button(window, text="Go!", command=_click_me)
 action.grid(column=0, row=2)
 action.configure(state="disabled")
 
@@ -113,17 +114,17 @@ window.config(menu=menu_bar)
 file_menu = Menu(menu_bar, tearoff=0)
 file_menu.add_command(label="New")
 file_menu.add_separator()
-file_menu.add_command(label="Exit", command=quit)
+file_menu.add_command(label="Exit", command=_quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
 edit_menu = Menu(menu_bar, tearoff=0)
-edit_menu.add_command(label="Add apps", command=addApp)
+edit_menu.add_command(label="Add apps", command=_addApp)
 edit_menu.add_separator()
-edit_menu.add_command(label="Remove apps", command=removeApp)
+edit_menu.add_command(label="Remove apps", command=_removeApp)
 menu_bar.add_cascade(label="Edit", menu=edit_menu)
 help_menu = Menu(menu_bar, tearoff=0)
-help_menu.add_command(label="How to...", command=msgBoxHT)
+help_menu.add_command(label="How to...", command=_msgBoxHT)
 help_menu.add_separator()
-help_menu.add_command(label="Help", command=msgBoxHelp)
+help_menu.add_command(label="Help", command=_msgBoxHelp)
 menu_bar.add_cascade(label="Help", menu=help_menu)
 
 #======================

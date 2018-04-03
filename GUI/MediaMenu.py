@@ -52,9 +52,13 @@ def quit():
     window.destroy()
     exit()
 
-# Open changes GUI
-def changes():
-    os.startfile(r"C:\Users\Admin\Desktop\Code\Code\Github\Media_Organize\GUI\ChangeApp.py", "open") #for especific path
+# Add app to the GUI
+def addApp():
+    msg.askquestion()
+
+# Remove app from the GUI
+def removeApp():
+    msg.askquestion()
 
 #======================
 # title
@@ -112,7 +116,9 @@ file_menu.add_separator()
 file_menu.add_command(label="Exit", command=quit)
 menu_bar.add_cascade(label="File", menu=file_menu)
 edit_menu = Menu(menu_bar, tearoff=0)
-edit_menu.add_command(label="Add/Remove apps", command=changes)
+edit_menu.add_command(label="Add apps", command=addApp)
+edit_menu.add_separator()
+edit_menu.add_command(label="Remove apps", command=removeApp)
 menu_bar.add_cascade(label="Edit", menu=edit_menu)
 help_menu = Menu(menu_bar, tearoff=0)
 help_menu.add_command(label="How to...", command=msgBoxHT)
@@ -123,4 +129,4 @@ menu_bar.add_cascade(label="Help", menu=help_menu)
 #======================
 # Start GUI
 #======================
-window.mainloop()
+window.mainloop()  

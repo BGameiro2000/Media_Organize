@@ -55,11 +55,17 @@ def _quit():
 
 # Add app to the GUI
 def _addApp():
-    dlg.SimpleDialog(window, title="Add Apps", text="This window allows you to add apps to your menu.", cancel=1)
+    addApp = tk.Toplevel()
+    addApp.title("Add Apps")
+    ttk.Label(addApp, text="This window allows you to add apps to your menu.").grid(column=0, row=0)
+    ttk.Button(addApp, text="Dismiss", command=addApp.destroy).grid(column=1, row=0)
 
 # Remove app from the GUI
 def _removeApp():
-    dlg.SimpleDialog(window, title="Remove Apps")
+    removeApp = tk.Toplevel()
+    removeApp.title("Remove Apps")
+    ttk.Label(removeApp, text="This window allows you to remove apps from your menu.").grid(column=0, row=0)
+    ttk.Button(removeApp, text="Dismiss", command=removeApp.destroy).grid(column=1, row=0)
 
 #======================
 # title

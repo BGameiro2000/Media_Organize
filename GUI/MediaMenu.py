@@ -18,6 +18,7 @@ from tkinter import ttk, Menu
 from tkinter import messagebox as msg
 from tkinter import simpledialog as dlg
 import os
+from pathlib import Path
 from Data.dictionary import AppsPath as AppsPath
 from Data.UserSettings.userlists import Apps as Apps
 import Data.Help.MediaMenuHelp as Help
@@ -118,7 +119,7 @@ window.config(menu=menu_bar)
 # Add menu items
 # File menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="New")
+file_menu.add_command(label="New", command=os.startfile(r"C:\Users\Admin\Desktop\Code\Code\Github\Media_Organize\GUI\MediaMenu.py"))
 file_menu.add_separator()
 file_menu.add_command(label="Version")
 file_menu.add_separator()

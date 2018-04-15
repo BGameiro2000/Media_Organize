@@ -16,7 +16,6 @@ Using Tkinter
 import tkinter as tk
 from tkinter import ttk, Menu
 from tkinter import messagebox as msg
-from tkinter import simpledialog as dlg
 import os
 from pathlib import Path
 from Data.dictionary import AppsPath as AppsPath
